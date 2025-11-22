@@ -12,27 +12,22 @@
             font-style: normal;
         }
         html {
-            background-color: #E3E3E3;
+            background-color: #E6F2FF;
         }
         body {
             margin: 0 auto;
             min-height: 100vh;
-            max-width: 650px;
+            max-width: 1200px;
             line-height: 1.4;
             font-size: 18px;
             font-family: "ProzaLibre", "Lato", "Arial", "Helvetica", sans-serif;
-            color: #008080;
-            background-color: #F9F9F9;
+            color: #0066CC;
+            background-color: #FFFFFF;
             padding: 0 10px;
         }
         @media only screen and (max-width: 768px) {
             body {
                 max-width: 100%;
-            }
-        }
-        @media only screen and (min-width: 1200px) {
-            body {
-                max-width: 42%;
             }
         }
         header {
@@ -46,22 +41,22 @@
         h1, h4 {
             margin: 0;
             line-height: 1;
-            color: #FF7F50;
+            color: #003D7A;
         }
         h2, h3 {
-            color: #FF7F50;
+            color: #003D7A;
         }
         a {
-            color: #008080;
+            color: #0066CC;
             text-decoration: underline;
         }
         a:hover {
-            color: #FF7F50;
+            color: #4A90E2;
         }
         table td {
             min-width: 120px;
             padding-left: 12px;
-            border-bottom: 1px #d3d3d3 solid;
+            border-bottom: 1px #B3D9FF solid;
         }
         .tag {
             display: inline-block;
@@ -69,7 +64,7 @@
             margin: 0;
             font-size: small;
             font-weight: bold;
-            background-color: #008080;
+            background-color: #0066CC;
             color: white;
             border-radius: 4px;
         }
@@ -79,14 +74,14 @@
             margin: 0;
             font-size: small;
             font-weight: bold;
-            background-color: #FF7F50;
+            background-color: #4A90E2;
             color: white;
             border-radius: 4px;
             transition: background-color 0.3s ease;
             text-decoration: none;
         }
         .tag-link:hover {
-            background-color: #008080;
+            background-color: #0066CC;
             color: white;
         }
     </style>
@@ -94,11 +89,11 @@
 </head>
 <body>
     <header>
-            <a href="/hms/dives">dives</a>&nbsp;
-            <a href="/hms/sites">sites</a>&nbsp;
-            <a href="/hms/tags">tags</a>&nbsp;
-            <a href="/hms/about">about</a>&nbsp;
-            <a href="https://github.com/cicovic-andrija/mydives" target="_blank">code</a>&nbsp;
+            <a href="/hms/dives">dives</a> |
+            <a href="/hms/sites">sites</a> |
+            <a href="/hms/tags">tags</a> |
+            <a href="/hms/about">about</a> |
+            <a href="https://github.com/cicovic-andrija/mydives" target="_blank">code</a>
     </header>
 
     {{ if .Supertitle }}<h4>{{ .Supertitle }}</h4>{{ end }}
@@ -237,7 +232,7 @@
     {{ range .Site.GeoLabels }}
     <span class="tag">{{ . }}</span>
     {{ end }}
-    <h3>Map</h3>
+    <h3>🌐 Map</h3>
     <div>
         <iframe
             width="100%"
@@ -299,7 +294,7 @@
     </p>
     {{ end }}
     <footer>
-        <a href="#">top</a>
+        <a href="#">top</a>⤴
     </footer>
 </body>
 </html>
