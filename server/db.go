@@ -92,8 +92,7 @@ func (p *SubsurfaceCallbackHandler) HandleDive(ddh subsurface.DiveDataHolder) in
 	assert(bluefin.DiveTrips[ddh.DiveTripID] != nil, "DiveTrip ptr is nil")
 	trace(_link, "%v -> %v", dive, bluefin.DiveTrips[ddh.DiveTripID])
 
-	processSpecialTags(dive, specialTags)
-
+	dive.ProcessSpecialTags(specialTags)
 	dive.Normalize()
 
 	bluefin.Dives = append(bluefin.Dives, dive)
@@ -161,9 +160,4 @@ func (p *SubsurfaceCallbackHandler) HandleHeader(program string, version string)
 
 func (p *SubsurfaceCallbackHandler) HandleSkip(element string) {
 	// do nothing
-}
-
-func processSpecialTags(dive *Dive, specialTags []string) {
-	// Process tags matching pattern "_key_value" (e.g., "_region_Europe")
-	// Tags are kept as-is in DiveDataHolder, but can be processed here during database building
 }

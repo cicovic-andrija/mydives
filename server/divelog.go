@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"strings"
 	"time"
+
+	"src.acicovic.me/divelog/server/utils"
 )
 
 type DiveLog struct {
@@ -82,7 +84,7 @@ func (t *DiveTrip) String() string {
 }
 
 func (d *Dive) Ago() string {
-	years, months, days := durationToYMD(d.datetime, time.Now().UTC())
+	years, months, days := utils.DurationToYMD(d.datetime, time.Now().UTC())
 	return fmt.Sprintf("%dy %dm %dd ago", years, months, days)
 }
 
@@ -105,7 +107,11 @@ func (d *Dive) Normalize() {
 		d.Gas = "nitrox " + d.Gas
 	}
 
-	d.CylType = cylTypeMappings[d.CylType]
+	if cylType, ok := CylTypeMappings[d.CylType]; ok {
+		d.CylType = cylType
+	} else {
+		d.CylType = "unrecognized"
+	}
 }
 
 func (d *Dive) IsTaggedWith(tag string) bool {
@@ -120,44 +126,15 @@ func (d *Dive) IsTaggedWith(tag string) bool {
 	return false
 }
 
+func (d *Dive) ProcessSpecialTags(specialTags []string) {
+	// Process tags matching pattern "_key_value" (e.g., "_region_Europe")
+	// Tags are kept as-is in DiveDataHolder, but can be processed here during database building
+}
+
 func (dl *DiveLog) LargestDiveID() int {
 	return len(dl.Dives) - 1
 }
 
 func (dl *DiveLog) LargestSiteID() int {
 	return len(dl.DiveSites) - 1
-}
-
-var cylTypeMappings = map[string]string{
-	"AL100": "aluminium",
-	"HP100": "steel",
-	"HP130": "steel",
-}
-
-// not super precise, works better for UTC
-func durationToYMD(start time.Time, end time.Time) (years int, months int, days int) {
-	if end.Before(start) {
-		start, end = end, start
-	}
-
-	y1, m1, d1 := start.Date()
-	y2, m2, d2 := end.Date()
-	years = y2 - y1
-
-	if m2 < m1 || (m2 == m1 && d2 < d1) {
-		years--
-	}
-
-	months = int(end.Month()) - int(start.Month())
-	if d2 < d1 {
-		months--
-	}
-	if months < 0 {
-		months += 12
-	}
-
-	newStart := start.AddDate(years, months, 0)
-	days = int(end.Sub(newStart).Hours() / 24)
-
-	return
 }
