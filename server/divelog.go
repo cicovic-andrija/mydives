@@ -82,6 +82,11 @@ func (s *DiveSite) ShortName() string {
 	return strings.TrimSpace(strings.Split(s.Name, ",")[0])
 }
 
+func (s *DiveSite) FormattedCoordinates() string {
+	parts := strings.Fields(strings.TrimSpace(s.Coordinates))
+	return fmt.Sprintf("lat = %s, long = %s", parts[0], parts[1])
+}
+
 func (t *DiveTrip) String() string {
 	return fmt.Sprintf("T%d:[%s]", t.ID, t.Label)
 }

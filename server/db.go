@@ -112,6 +112,7 @@ func (p *SubsurfaceCallbackHandler) HandleDiveSite(uuid string, name string, coo
 			description = strings.TrimSpace(description[i:])
 		} else {
 			specialTags = strings.TrimPrefix(description, PrefixForTagsInDescription)
+			description = ""
 		}
 
 		// DEVNOTE: DiveSite only supports one special tag for now: {RegionTagPrefix}{value}.
@@ -121,6 +122,10 @@ func (p *SubsurfaceCallbackHandler) HandleDiveSite(uuid string, name string, coo
 				region = value
 			}
 		}
+	}
+
+	if strings.TrimSpace(description) == "" {
+		description = UndefinedDescription
 	}
 
 	site := &DiveSite{

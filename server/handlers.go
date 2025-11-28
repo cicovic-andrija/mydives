@@ -306,7 +306,7 @@ func renderSite(w http.ResponseWriter, r *http.Request) {
 
 	renderTemplate(w, Page{
 		Title:      site.Name,
-		Supertitle: site.Coordinates,
+		Supertitle: site.Region,
 		Site:       NewSiteFull(site, bluefin.Dives[1:]),
 	})
 }

@@ -269,7 +269,8 @@
     {{ range .Site.GeoLabels }}
     <span class="tag">{{ . }}</span>
     {{ end }}
-    <h3>🌐 Map</h3>
+    <p>{{ .Site.Description }}</p>
+    <h3>Map 🌐 {{ .Site.FormattedCoordinates }}</h3>
     <div>
         <iframe
             width="100%"
