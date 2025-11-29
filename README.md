@@ -88,6 +88,40 @@ Environment variables:
 - `DIVELOG_PRIVATE_KEY_PATH` - Path to TLS private key (required for `prod` mode)
 - `DIVELOG_CERT_PATH` - Path to TLS certificate (required for `prod` mode)
 
+## Special Tags
+
+Bluefin supports special tags in the format `_key_value` for enhanced metadata processing.
+
+### Dive Site Descriptions
+
+In dive site descriptions, use the `tags:` prefix followed by special tags before the actual description:
+
+```
+tags:_region_pacific Beautiful coral reef dive site
+```
+
+**Supported tags:**
+- `_region_{value}` - Sets the dive site's region. Supported values include:
+  - `europe`, `asia`, `north-america`
+  - `atlantic`, `indian`, `pacific`, `mediterranean`, `red-sea`
+
+The region value is mapped to a display name (e.g., `pacific` to "Pacific Ocean"). If no region tag is found, the site defaults to "Unlabeled Region".
+
+### Dive Tags
+
+In dive tags, special tags starting with `_` are processed separately from regular tags:
+
+**Supported tags:**
+- `_award_{value}` - Assigns an award to the dive. Supported values include:
+  - `1st-dive`, `1st-seawater-dive`, `1st-shark-encounter`, `1st-night-dive`
+  - `1st-30m-dive`, `1st-40m-dive`, `1st-wreck-dive`, `1st-wreck-penetration`
+  - `cert-owd`, `cert-aowd-nitrox`, `cert-navigation`, `cert-dry`, `cert-deep`, `cert-wreck`
+  - `100th-dive`
+
+The award value is mapped to a display name (e.g., `1st-dive` to "First dive!").
+
+Special tags are not displayed as regular tags but are processed to set dive properties like awards.
+
 ## Build a Docker Image
 
 Build a Docker image using the provided [`Dockerfile`](Dockerfile):
@@ -111,9 +145,14 @@ These can be overridden at runtime using `-e` flags if needed.
 To run the container, mount your Subsurface XML database file:
 
 ```bash
-docker run -d \
-  -p 52000:52000 \
-  -v /path/to/subsurfacedata.xml:/srv/store/subsurfacedata.xml \
+docker run \
+  --name divelog-server \ # optional
+  --network $NETWORK_NAME \ # optional
+  --publish 127.0.0.1:8077:8077 \
+  --volume /host/path/to/subsurfacedata.xml:/srv/store/subsurfacedata.xml \
+  --env 'DIVELOG_PORT=8077' \
+  --restart on-failure:10 \ # optional
+  --detach \
   bluefin:latest
 ```
 
