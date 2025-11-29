@@ -12,85 +12,180 @@
             font-style: normal;
         }
         html {
-            background-color: #E6F2FF;
+            background-color: #F5F8FC;
         }
         body {
             margin: 0 auto;
             min-height: 100vh;
             max-width: 1200px;
-            line-height: 1.4;
+            line-height: 1.6;
             font-size: 18px;
             font-family: "ProzaLibre", "Lato", "Arial", "Helvetica", sans-serif;
             color: #0066CC;
             background-color: #FFFFFF;
-            padding: 0 10px;
-        }
-        @media only screen and (max-width: 768px) {
-            body {
-                max-width: 100%;
-            }
+            padding: 0 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
         }
         header {
-            margin-bottom: 32px;
-            line-height: 1.8;
+            margin-bottom: 40px;
+            padding: 20px 0;
+            border-bottom: 2px solid #E6F2FF;
         }
         footer {
-            margin-top: 32px;
+            margin-top: 48px;
+            padding: 20px 0;
+            border-top: 2px solid #E6F2FF;
             line-height: 1.8;
         }
-        h1, h4 {
-            margin: 0;
-            line-height: 1;
+        h1 {
+            margin: 0 0 8px 0;
+            line-height: 1.2;
             color: #003D7A;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+        h4 {
+            margin: 0 0 8px 0;
+            line-height: 1.2;
+            color: #4A90E2;
+            font-size: 1.1em;
+            font-weight: normal;
         }
         h2, h3 {
             color: #003D7A;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            font-size: 1.5em;
+        }
+        p {
+            line-height: 1.6;
+            margin-bottom: 16px;
         }
         a {
             color: #0066CC;
-            text-decoration: underline;
+            text-decoration: none;
+            transition: color 0.2s ease;
         }
         a:hover {
             color: #4A90E2;
+            text-decoration: underline;
+        }
+        header.nav a {
+            display: inline-block;
+            padding: 8px 12px;
+            margin-right: 8px;
+            background-color: #F0F7FF;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            line-height: 28px;
+        }
+        header.nav a:hover {
+            background-color: #E6F2FF;
+            color: #003D7A;
+            text-decoration: none;
+            transform: translateY(-1px);
+        }
+        header.nav .right a {
+            background-color: transparent;
+            padding: 8px 12px;
+        }
+        header.nav .right a:hover {
+            background-color: #F0F7FF;
+        }
+        .dive-card, .site-card {
+            display: block;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            background-color: #F8FAFF;
+            border-radius: 8px;
+            border: 1px solid #E6F2FF;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            color: #0066CC;
+        }
+        .dive-card:hover, .site-card:hover {
+            background-color: #F0F7FF;
+            border-color: #B3D9FF;
+            box-shadow: 0 2px 8px rgba(0, 102, 204, 0.1);
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+        .dive-list, .site-list {
+            margin-bottom: 24px;
+        }
+        table {
+            width: 100%;
+            margin-top: 32px;
+            border-collapse: separate;
+            border-spacing: 0;
+            background-color: #FFFFFF;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
         table td {
             min-width: 120px;
-            padding-left: 12px;
-            border-bottom: 1px #B3D9FF solid;
+            padding: 16px 20px;
+            border-bottom: 1px solid #E6F2FF;
+        }
+        table tr:last-child td {
+            border-bottom: none;
+        }
+        table tr:nth-child(even) {
+            background-color: #F8FAFF;
+        }
+        table tr:hover {
+            background-color: #F0F7FF;
         }
         .tag {
             display: inline-block;
-            padding: 1px 10px;
-            margin: 0;
+            padding: 4px 12px;
+            margin: 0 4px 8px 0;
             font-size: small;
             font-weight: bold;
             background-color: #0066CC;
             color: white;
-            border-radius: 4px;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         .tag-link {
             display: inline-block;
-            padding: 1px 10px;
-            margin: 0;
+            padding: 6px 14px;
+            margin: 0 6px 8px 0;
             font-size: small;
             font-weight: bold;
             background-color: #4A90E2;
             color: white;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
+            border-radius: 6px;
+            transition: all 0.2s ease;
             text-decoration: none;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         .tag-link:hover {
             background-color: #0066CC;
             color: white;
+            text-decoration: none;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
         }
         .award {
-            color: #003D7A;
+            display: inline-block;
+            padding: 4px 10px;
+            margin-left: 8px;
+            background-color: #B2F5EA;
+            color: #00796B;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9em;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         .nav {
             display: flex;
             align-items: center;
             gap: 0.4rem;
+            flex-wrap: wrap;
         }
         .nav .right {
             margin-left: auto;
@@ -101,33 +196,70 @@
             fill: currentColor;
             vertical-align: -0.125em;
         }
+        .section {
+            margin-bottom: 32px;
+        }
+        .map-container {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin: 24px 0;
+        }
+        iframe {
+            display: block;
+        }
+        @media only screen and (max-width: 768px) {
+            body {
+                max-width: 100%;
+                padding: 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h3 {
+                font-size: 1.3em;
+            }
+            header.nav a {
+                padding: 10px 14px;
+                margin-bottom: 8px;
+            }
+            .dive-card, .site-card {
+                padding: 14px 16px;
+            }
+            table td {
+                padding: 12px 16px;
+            }
+        }
     </style>
     <title>{{ .Title }}</title>
 </head>
 <body>
     <header class="nav">
-        <a href="/hms/dives">dives</a> |
-        <a href="/hms/sites">sites</a> |
-        <a href="/hms/tags">tags</a> |
-        <a href="/hms/about">about</a>
+        <a href="/hms/dives">Dives</a>
+        <a href="/hms/sites">Sites</a>
+        <a href="/hms/tags">Tags</a>
+        <a href="/hms/about">About</a>
         <div class="right">
-            <svg class="gh-icon" viewBox="0 0 16 16" aria-hidden="true">
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
-                        7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49
-                        -2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
-                        -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82
-                        .72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
-                        -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
-                        -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82
-                        .64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27
-                        1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12
-                        .51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95
-                        .29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2
-                        0 .21.15.46.55.38A8.013 8.013 0 0016 8
-                        c0-4.42-3.58-8-8-8z">
-                </path>
-            </svg>
-            <a href="https://github.com/cicovic-andrija/mydives" target="_blank">bluefin code</a>
+
+            <a href="https://github.com/cicovic-andrija/bluefin" target="_blank">
+                <svg class="gh-icon" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47
+                            7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49
+                            -2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
+                            -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82
+                            .72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07
+                            -1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
+                            -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82
+                            .64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27
+                            1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12
+                            .51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95
+                            .29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2
+                            0 .21.15.46.55.38A8.013 8.013 0 0016 8
+                            c0-4.42-3.58-8-8-8z">
+                    </path>
+                </svg>
+                Bluefin
+            </a>
         </div>
     </header>
 
@@ -135,45 +267,55 @@
     <h1>{{ .Title }}</h1>
     <!-- case 1 -->
     {{ if .Trips }}
-    <p>The last recorded dive was done on {{ (index (index .Trips 0).LinkedDives 0).DateTimeInPretty }}...</p>
+    <div class="section">
     {{ range .Trips }}
     <h3>{{ .Label }}</h3>
+    <div class="dive-list">
     {{ range .LinkedDives }}
-    <a href="/hms/dives/{{ .ID }}">{{ .ShortLabel }}</a>{{ if .Award }} 🥇<span class="award">{{ .Award }}</span>{{ end }}<br>
+    <a href="/hms/dives/{{ .ID }}" class="dive-card">{{ .ShortLabel }}{{ if .Award }}<span class="award">🥇 {{ .Award }}</span>{{ end }}</a>
     {{ end }}
+    </div>
     {{ end }}
+    </div>
     {{ end }}
     <!-- case 2 -->
-    {{ if .Dives }}
     <p></p>
+    {{ if .Dives }}
+    <div class="section dive-list">
    {{ range .Dives }}
-    <a href="/hms/dives/{{ .ID }}">{{ .ShortLabel }}</a>{{ if .Award }} 🥇<span class="award">{{ .Award }}</span>{{ end }}<br>
+    <a href="/hms/dives/{{ .ID }}" class="dive-card">{{ .ShortLabel }}{{ if .Award }} 🥇<span class="award">{{ .Award }}</span>{{ end }}</a>
     {{ end }}
+    </div>
     {{ end }}
     <!-- case 3 -->
     {{ if .GroupedSites }}
+    <div class="section">
     {{ range .GroupedSites }}
     <h3>{{ .Region }}</h3>
+    <div class="site-list">
     {{ range .LinkedSites }}
-    <a href="/hms/sites/{{ .ID }}">{{ .Name }}</a><br>
+    <a href="/hms/sites/{{ .ID }}" class="site-card">{{ .Name }}</a>
     {{ end }}
+    </div>
     {{ end }}
+    </div>
     {{ end }}
     <!-- case 4 -->
     {{ if .Dive }}
+    <div class="section">
     {{ range .Dive.Tags }}
     <a class="tag-link" href="/hms/tags/{{ . }}">{{ . }}</a>
     {{ end }}
     {{ if .Dive.PrevID }}<a class="tag-link" href="/hms/dives/{{ .Dive.PrevID }}">previous</a>{{ end }}
     {{ if .Dive.NextID }}<a class="tag-link" href="/hms/dives/{{ .Dive.NextID }}">next</a>{{ end }}
-    <table style="margin-top: 32px;">
+    <table>
         <tr>
             <td><b>Start time</b></td>
             <td><b>{{ .Dive.DateTimeInPretty }}</b></td>
         </tr>
         <tr>
-            <td></td>
-            <td>({{ .Dive.Ago }} ago)</td>
+            <td><b>How long ago?</b></td>
+            <td>{{ .Dive.Ago }} ago</td>
         </tr>
         <tr>
             <td><b>Duration</b></td>
@@ -181,15 +323,19 @@
         </tr>
         <tr>
             <td><b>Dive site</b></td>
-            <td><a href="/hms/sites/{{ .Dive.DiveSiteID }}">{{ .Dive.DiveSiteName }}</a></td>
+            <td><a href="/hms/sites/{{ .Dive.DiveSiteID }}">🌐 {{ .Dive.DiveSiteName }}</a></td>
+        </tr>
+        <tr>
+            <td><b>Award</b></td>
+            <td>{{ if .Dive.Award }}<span class="award">🥇 {{ .Dive.Award }}</span>{{ else }}none{{ end }}</td>
         </tr>
         <tr>
             <td><b>Rating</b></td>
-            <td>{{ if .Dive.Rating5 }}{{ .Dive.Rating5 }}/5 ⭐{{ end }}</td>
+            <td>{{ if .Dive.Rating5 }}⭐ {{ .Dive.Rating5 }}/5{{ else }}{{ end }}</td>
         </tr>
         <tr>
             <td><b>Visibility</b></td>
-            <td>{{ if .Dive.Visibility5 }}{{ .Dive.Visibility5 }}/5 ⭐{{ end }}</td>
+            <td>{{ if .Dive.Visibility5 }}⭐ {{ .Dive.Visibility5 }}/5{{ end }}</td>
         </tr>
         <tr>
             <td><b>Water</b></td>
@@ -264,15 +410,17 @@
             <td>{{ .Dive.DCModel }}</td>
         </tr>
     </table>
+    </div>
     {{ end }}
     <!-- case 5 -->
     {{ if .Site }}
+    <div class="section">
     {{ range .Site.GeoLabels }}
     <span class="tag">{{ . }}</span>
     {{ end }}
     <p>{{ .Site.Description }}</p>
     <h3>Map 🌐 {{ .Site.FormattedCoordinates }}</h3>
-    <div>
+    <div class="map-container">
         <iframe
             width="100%"
             height="350"
@@ -286,13 +434,16 @@
     </div>
 
     <h3>Dives at this site</h3>
+    <div class="dive-list">
     {{ range .Site.LinkedDives }}
-    <a href="/hms/dives/{{ .ID }}">{{ .DateTimeInPretty }}</a>{{ if .Award }} 🥇<span class="award">{{ .Award }}</span>{{ end }}<br>
+    <a href="/hms/dives/{{ .ID }}" class="dive-card">{{ .DateTimeInPretty }}{{ if .Award }} 🥇<span class="award">{{ .Award }}</span>{{ end }}</a>
     {{ end }}
+    </div>
+    </div>
     {{ end}}
     <!-- case 6 -->
     {{ if .Tags }}
-    <p></p>
+    <div class="section">
     <table>
     {{ range $key, $value := .Tags}}
     <tr>
@@ -301,9 +452,11 @@
     </tr>
     {{ end }}
     </table>
+    </div>
     {{ end }}
     <!-- case 7 -->
     {{ if .About }}
+    <div class="section">
     <p>
         i wrote a <a href="https://subsurface-divelog.org/" target="_blank">subsurface</a> xml database parser in
         <a href="https://go.dev/" target="_blank">golang</a> as a fun way of exploring how the standard library parser
@@ -311,7 +464,7 @@
     </p>
     <p>
         this site is intended for personal use, but the implementation is open source and can be found by
-        following the <a href="https://github.com/cicovic-andrija/mydives" target="_blank">code</a> link in the header. i tested the parser and designed the necessary data structures
+        following the <a href="https://github.com/cicovic-andrija/bluefin" target="_blank">code</a> link in the header. i tested the parser and designed the necessary data structures
         based on my dive log only - there's plenty of room for fixes and extensions.
     </p>
     <p>
@@ -325,12 +478,15 @@
     <p>
         happy diving!
     </p>
+    </div>
     {{ end }}
     <!-- case 8 -->
     {{ if .NotFound }}
+    <div class="section">
     <p>
         page not found.
     </p>
+    </div>
     {{ end }}
     <footer class="nav">
         <a href="#">top</a>⤴
